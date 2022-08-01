@@ -16,9 +16,10 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+{{--        <script src="https://code.jquery.com/jquery-3.6.0.js"--}}
+{{--                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>--}}
         <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     </head>
     <body class="font-sans antialiased">
@@ -33,12 +34,17 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main   >
 
                 {{ $slot }}
+
             </main>
+
         </div>
 
         @livewireScripts
+        @livewire('livewire-ui-modal')
+{{--        <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>--}}
+
     </body>
 </html>

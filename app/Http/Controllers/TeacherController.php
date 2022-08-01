@@ -21,7 +21,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = User::where('role_id' , '=' , Role::IS_TEACHER)->paginate();
+        $teachers = User::where('role_id' , '=' , Role::IS_TEACHER)->get();
         return view( 'teachers.index' , compact( 'teachers' ) );
     }
 

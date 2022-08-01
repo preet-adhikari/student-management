@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = User::where('role_id' , '=' , Role::IS_STUDENT)->paginate();
+        $students = User::where('role_id' , '=' , Role::IS_STUDENT)->get();
         return view('students.index',compact('students'));
     }
 

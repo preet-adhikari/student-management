@@ -18,7 +18,7 @@
         </div>
 
     </div>
-    <script src="{{ asset('js/noticeAccordion.js') }}"></script>
+{{--    <script src="{{ asset('js/noticeAccordion.js') }}"></script>--}}
 </x-app-layout>
 
 
