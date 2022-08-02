@@ -12,14 +12,14 @@ class IndexUsers extends Component
 {
     public $userIDs;
 
-    protected $listeners = ['updateUsers' , 'deletionError'];
+    protected $listeners = ['deleteUsers' , 'deletionError', 'userUpdated' => 'render' , 'updateUser'];
 
     public function mount($users)
     {
         $this->userIDs = $users->pluck('id');
     }
 
-    public function updateUsers($role){
+    public function deleteUsers($role){
         return Redirect::to($role)->with('message' , 'User deleted successfully');
     }
 
@@ -27,6 +27,9 @@ class IndexUsers extends Component
         return Redirect::to($role)->with('errors' , 'There was a problem with the deletion');
     }
 
+    public function updateUser($role) {
+        return Redirect::to($role)->with('message' , 'User updated successfully');
+    }
     public function render()
     {
         $users = User::whereIn('id' , $this->userIDs)->paginate(10);

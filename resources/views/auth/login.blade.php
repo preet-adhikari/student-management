@@ -51,16 +51,17 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
-            <div class="flex items-center mt-4">
-                <x-button class="text-center w-full px-5">
-                    {{ __('Log in with facebook') }}
-                </x-button>
-            </div>
-            <div class="flex items-center mt-4">
-                <x-button class="text-center w-full px-5">
-                    {{ __('Log in with google') }}
-                </x-button>
-            </div>
+{{--            Oauth logins--}}
+{{--            <div class="flex items-center mt-4">--}}
+{{--                <x-button class="text-center w-full px-5">--}}
+{{--                    {{ __('Log in with facebook') }}--}}
+{{--                </x-button>--}}
+{{--            </div>--}}
+{{--            <div class="flex items-center mt-4">--}}
+{{--                <x-button class="text-center w-full px-5">--}}
+{{--                    {{ __('Log in with google') }}--}}
+{{--                </x-button>--}}
+{{--            </div>--}}
         </form>
     </x-auth-card>
 </x-guest-layout>

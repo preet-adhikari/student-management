@@ -25,7 +25,7 @@ class DeleteModal extends ModalComponent
         try {
             $this->user->delete();
             $this->closeModalWithEvents([
-                IndexUsers::getName() => ['updateUsers',[$role]]
+                IndexUsers::getName() => ['deleteUsers',[$role]]
             ]);
 
         }catch (\Exception $e){
