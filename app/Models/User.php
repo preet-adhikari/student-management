@@ -97,7 +97,6 @@ class User extends Authenticatable
      * @var mixed
      */
 
-
     public function role(){
         return $this->belongsTo(Role::class);
     }
