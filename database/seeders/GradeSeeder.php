@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Grade;
+use App\Models\Subject;
 use Illuminate\Database\Seeder;
 
 class GradeSeeder extends Seeder
@@ -14,6 +15,8 @@ class GradeSeeder extends Seeder
      */
     public function run()
     {
+//        Truncate before seeding
+        Grade::on()->truncate();
         $data = [
             ['One' , 1 , rand(30 , 40)],
             ['Two' , 2 , rand(30 , 40)],
@@ -35,6 +38,13 @@ class GradeSeeder extends Seeder
                   'grade_number' => $d[1],
                    'size' => $d[2],
                ]);
+        }
+
+        //Attaching subjects to grade
+        foreach (Grade::all() as $grade)
+        {
+            $subjects = Subject::inRandomOrder()->take(rand(1,3))->pluck('id');
+            $grade->subjects()->attach($subjects);
         }
     }
 }

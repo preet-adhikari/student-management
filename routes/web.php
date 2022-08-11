@@ -23,21 +23,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin' , function (){
+    return view('layouts.admin');
+});
+
 
 Route::group( ["middleware" => "auth"] , function (){
+    //Dashboard
    Route::get( '/dashboard' , function () {
-
-     $notices = Notice::paginate();
-     return view( 'dashboard', compact( 'notices' ) );
+     return view( 'dashboard');
    })->name("dashboard");
 
-//   Profile
+   //Notices
+   Route::get('/notices', function (){
+       return view('notices.notices');
+   })->name('notices');
+
+   //   Profile
    Route::get('/profile', function (){
        $roles = Role::all();
        return view('profile',compact('roles'));
    })->name('profile');
    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-
 
 
 //   Students cannot use these routes
@@ -54,5 +61,7 @@ Route::group( ["middleware" => "auth"] , function (){
     });
 
 });
+
+
 
 require __DIR__.'/auth.php';

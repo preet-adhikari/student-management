@@ -27,6 +27,10 @@
                                     </x-nav-link>
                             @endcan
                         @endcan
+                        {{--Notices--}}
+                        <x-nav-link :href="route('notices')" :active="request()->routeIs('notices')">
+                            {{ __('Notices') }}
+                        </x-nav-link>
 
 
                 </div>
@@ -97,6 +101,10 @@
                 </x-responsive-nav-link>
                 @endcan
             @endcan
+            {{--Notices--}}
+            <x-responsive-nav-link :href="route('notices')" :active="request()->routeIs('notices')">
+                {{ __('Notices') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
