@@ -36,8 +36,8 @@
                 </div>
             </div>
             <!-- content -->
-            <div class="flex-1 p-10 text-2xl font-bold bg-yellow-300">
-                content goes here
+            <div class="flex-1 p-10 text-2xl font-bold bg-gray-100">
+                {{ $content }}
             </div>
         </div>
     </div>

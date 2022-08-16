@@ -23,10 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin' , function (){
-    return view('layouts.admin');
+//Admin Panel
+
+Route::group( ["middleware" => "auth" , "adminAuth"] , function (){
+    Route::get('/admin' , function (){
+        return view('admin.dashboard');
+    });
 });
 
+
+
+
+
+//Main Website
 
 Route::group( ["middleware" => "auth"] , function (){
     //Dashboard
