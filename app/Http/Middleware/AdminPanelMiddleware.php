@@ -17,7 +17,7 @@ class AdminPanelMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role->id == Role::IS_STUDENT || Role::IS_TEACHER){
+        if((auth()->user()->role->id == Role::IS_STUDENT) || (auth()->user()->role->id == Role::IS_TEACHER)){
             abort(403);
         }
         return $next($request);

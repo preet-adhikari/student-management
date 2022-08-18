@@ -25,10 +25,22 @@ Route::get('/', function () {
 
 //Admin Panel
 
-Route::group( ["middleware" => "auth" , "adminAuth"] , function (){
-    Route::get('/admin' , function (){
+//Route::middleware(['auth', 'adminAuth'])->group( function (){
+//    Route::get('/admin' , function (){
+//        return view('admin.dashboard');
+//    });
+//});
+
+Route::group( ["prefix" =>"admin" , "middleware" => ["auth" , "adminAuth"]], function (){
+    Route::get('/' , function (){
         return view('admin.dashboard');
     });
+
+    //Staff view
+    Route::get('/staff' , function (){
+       $staff = \App\Models\User::whereRoleId(Role::IS_TEACHER)->paginate();
+       return view('admin.staff.dashboard' , compact('staff'));
+    })->name('admin.staff');
 });
 
 
