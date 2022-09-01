@@ -105,4 +105,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Subject::class)->withTimestamps();
     }
+
+    public function grades()
+    {
+        return $this->belongsToMany(Grade::class,'grade_user' , 'user_id' , 'grade_number')->withTimestamps();
+    }
 }

@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
 //        Go to admin panel if user is admin or principal
-        if ((\auth()->user()->role->id) == Role::IS_PRINCIPAL || Role::IS_ADMIN){
+        if ((\auth()->user()->role->id) == Role::IS_PRINCIPAL || (\auth()->user()->role->id) == Role::IS_ADMIN){
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
         return redirect()->intended(RouteServiceProvider::HOME);

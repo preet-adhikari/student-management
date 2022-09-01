@@ -2,25 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\General\CollectionHelper;
-use App\Models\Grade;
-use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\Models\Assignment;
 use Illuminate\Http\Request;
 
-class GradeController extends Controller
+class AssignmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $grades = Grade::with('users')->paginate();
-        return view('admin.grades.classes' , compact('grades'));
+        //
     }
 
     /**
@@ -47,25 +41,21 @@ class GradeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
-     * @return Application|Factory|View|\Illuminate\Http\Response
+     * @param  \App\Models\Assignment  $assignment
+     * @return \Illuminate\Http\Response
      */
-    public function show(Grade $grade)
+    public function show(Assignment $assignment)
     {
-        $results = $grade->users;
-        $pageSize = 10;
-        $grades = CollectionHelper::paginate($results , $pageSize);
-        $name = $grade->name;
-        return view('admin.grades.view_single_grade' , compact('grades' , 'name'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grade $grade)
+    public function edit(Assignment $assignment)
     {
         //
     }
@@ -74,10 +64,10 @@ class GradeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grade $grade)
+    public function update(Request $request, Assignment $assignment)
     {
         //
     }
@@ -85,10 +75,10 @@ class GradeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grade $grade)
+    public function destroy(Assignment $assignment)
     {
         //
     }

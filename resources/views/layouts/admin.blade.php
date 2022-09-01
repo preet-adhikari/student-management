@@ -28,9 +28,11 @@
             {{--    Sidebar    --}}
             <div class="sidebar bg-gray-100 text-gray-900 w-64 px-2 space-y-6 py-4 absolute md:relative md:translate-x-0 inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out">
                 <div>
+                    {{-- Staff --}}
                     <a href="{{ route('admin.staff') }}" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">Staff Members</a>
-                    <a href="" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">Classes</a>
-                    <a href="" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">Materials</a>
+                    {{-- Students--}}
+                    <a href="{{route('admin.students')}}" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">All Students</a>
+                    <a href="{{ route('grade.index') }}" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">Classes</a>
                     <a href="" class="block py-2 px-4 rounded hover:bg-gray-200 transition duration-200">Contact</a>
 
                 </div>

@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Models\Notice;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,11 +26,6 @@ Route::get('/', function () {
 
 //Admin Panel
 
-//Route::middleware(['auth', 'adminAuth'])->group( function (){
-//    Route::get('/admin' , function (){
-//        return view('admin.dashboard');
-//    });
-//});
 
 Route::group( ["prefix" =>"admin" , "middleware" => ["auth" , "adminAuth"]], function (){
     Route::get('/' , function (){
@@ -38,14 +34,20 @@ Route::group( ["prefix" =>"admin" , "middleware" => ["auth" , "adminAuth"]], fun
 
     //Staff view
     Route::get('/staff' , function (){
-       $staff = \App\Models\User::whereRoleId(Role::IS_TEACHER)->paginate();
+       $staff = User::whereRoleId(Role::IS_TEACHER)->paginate();
        return view('admin.staff.dashboard' , compact('staff'));
     })->name('admin.staff');
+
+    //Students view
+    Route::get('/students' , function (){
+        $students = User::whereRoleId(Role::IS_STUDENT)->paginate();
+        return view('admin.student.dashboard' , compact('students'));
+    })->name('admin.students');
+
+    //Classes view
+    Route::resource('grade' , GradeController::class);
+
 });
-
-
-
-
 
 //Main Website
 

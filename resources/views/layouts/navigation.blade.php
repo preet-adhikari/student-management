@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link>
+                        {{ __('Classes') }}
+                    </x-nav-link>
+
                         @can('admin-teachers-principal-only')
                             <x-nav-link :href="route('student.index')" :active="request()->routeIs('student.index')">
                                 {{ __('Students') }}
@@ -31,8 +36,6 @@
                         <x-nav-link :href="route('notices')" :active="request()->routeIs('notices')">
                             {{ __('Notices') }}
                         </x-nav-link>
-
-
                 </div>
             </div>
 

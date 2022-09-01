@@ -10,9 +10,8 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
                                 </th>
-
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Role
+                                    Grade
                                 </th>
 
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -36,15 +35,14 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($staff as $user)
+                            @foreach ($students as $user)
                                 <tr>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $user->name }}
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $user->role->designation }}
+                                        {{ $user->grades[0]->name}}
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -74,7 +72,7 @@
 
                     </div>
                     <div class="mt-4">
-                        {{ $staff->links() }}
+                        {{ $students->links() }}
                     </div>
                 </div>
             </div>
